@@ -9,9 +9,20 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent {
   title = 'alurapic';
 
-  photos = [];
+  photos:Object[] = [];
 
   constructor(http: HttpClient) {
-    console.log(http);
+    // esse é o método inteiro usando o observable
+    // const observable = http.get('http://localhost:3000/flavio/photos');
+    // observable.subscribe();
+
+    // esse é o método resumido
+    http
+      .get<Object[]>('http://localhost:3000/flavio/photos')
+      .subscribe(
+        photos => this.photos = photos
+      );
+
+    // pesquisar
   }
 }
