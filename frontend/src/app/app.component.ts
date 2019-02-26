@@ -11,7 +11,7 @@ export class AppComponent {
 
   photos = [];
 
-  constructor(http: HttpClient){
+  constructor(http: HttpClient) {
     console.log(http);
   }
 }
